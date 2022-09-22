@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:todoey/screens/tasks_screen.dart';
 
 void main() {
-  runApp(const MyApp(),);
+  runApp(
+    const MyApp(),
+  );
 }
 
 class MyApp extends StatelessWidget {
@@ -10,6 +12,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => const MaterialApp(
-    home: TasksScreen(),
-  );
+        home: TasksScreen(),
+        debugShowCheckedModeBanner: false,
+      );
 }
