@@ -1,5 +1,5 @@
 # todoey 🤓
 
-The simple to-do app using provider state managment
+The simple to-do app using provider state management
 
 
