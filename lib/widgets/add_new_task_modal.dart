@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todoey/models/task_data.dart';
 
 class AddNewTaskModal extends StatelessWidget {
-  const AddNewTaskModal({Key? key}) : super(key: key);
+  AddNewTaskModal({
+    Key? key,
+  }) : super(key: key);
+
+  String newTextTitle = '';
 
   @override
   Widget build(BuildContext context) {
@@ -23,15 +29,22 @@ class AddNewTaskModal extends StatelessWidget {
                 color: Colors.lightBlueAccent,
               ),
             ),
-            const TextField(
+            TextField(
               autofocus: true,
               textAlign: TextAlign.center,
+              onChanged: (newValue) {
+                newTextTitle = newValue;
+              },
             ),
             const SizedBox(
               height: 10,
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                Provider.of<TaskData>(context, listen: false)
+                    .addNewTask(newTextTitle);
+                Navigator.pop(context);
+              },
               child: const Text(
                 'Add',
                 style: TextStyle(
